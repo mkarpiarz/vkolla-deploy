@@ -1,0 +1,6 @@
+== Deploy container
+Build container from a custom branch of `kolla` and `kolla-ansible` (master is used by default):
+
+-------
+$ docker build --build-arg K_BRANCH="stable/queens" --build-arg KA_BRANCH="stable/queens" . -t kolla-deploy:latest
+-------
