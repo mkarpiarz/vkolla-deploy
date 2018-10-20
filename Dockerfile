@@ -15,7 +15,8 @@ RUN apt-get install -y \
     libffi-dev \
     gcc \
     libssl-dev \
-    python-selinux
+    python-selinux \
+    sudo
 RUN curl https://bootstrap.pypa.io/get-pip.py | python
 RUN pip install ansible==2.4
 
