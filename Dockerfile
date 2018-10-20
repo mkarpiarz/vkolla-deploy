@@ -5,6 +5,8 @@ MAINTAINER Mariusz Karpiarz
 ARG K_BRANCH=master
 # Kolla-Ansible branch to check out
 ARG KA_BRANCH=master
+# Ansible version to use
+ARG ANSIBLE_VERSION=2.4
 
 RUN apt-get update
 RUN apt-get install -y \
@@ -18,7 +20,7 @@ RUN apt-get install -y \
     python-selinux \
     sudo
 RUN curl https://bootstrap.pypa.io/get-pip.py | python
-RUN pip install ansible==2.4
+RUN pip install ansible==$ANSIBLE_VERSION
 
 RUN mkdir -p /etc/ansible
 ADD ansible.cfg /etc/ansible/ansible.cfg

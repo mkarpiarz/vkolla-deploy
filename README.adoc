@@ -2,5 +2,5 @@
 Build container from a custom branch of `kolla` and `kolla-ansible` (master is used by default):
 
 -------
-$ docker build --build-arg K_BRANCH="stable/queens" --build-arg KA_BRANCH="stable/queens" . -t kolla-deploy:latest
+$ docker build --build-arg K_BRANCH="stable/queens" --build-arg KA_BRANCH="stable/queens" --build-arg ANSIBLE_VERSION=2.4 . -t kolla-deploy:latest
 -------
