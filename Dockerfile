@@ -23,7 +23,7 @@ RUN mkdir -p /etc/ansible
 ADD ansible.cfg /etc/ansible/ansible.cfg
 
 # Clone and setup Kolla
-WORKDIR /opt
+WORKDIR /kolla
 RUN git clone https://github.com/openstack/kolla -b $K_BRANCH
 RUN git clone https://github.com/openstack/kolla-ansible -b $KA_BRANCH
 RUN pip install --upgrade -r kolla/requirements.txt
