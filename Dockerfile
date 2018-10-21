@@ -33,3 +33,12 @@ RUN pip install --upgrade -r kolla/requirements.txt
 RUN pip install --upgrade -r kolla-ansible/requirements.txt
 RUN cp -r kolla-ansible/etc/kolla /etc/kolla/
 RUN kolla-ansible/tools/generate_passwords.py
+
+# Install openstack clients
+RUN pip install \
+    python-openstackclient \
+    python-glanceclient \
+    python-neutronclient \
+    python-heatclient \
+    python-ceilometerclient \
+    aodhclient
