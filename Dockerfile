@@ -33,6 +33,8 @@ RUN pip install --upgrade -r kolla/requirements.txt
 RUN pip install --upgrade -r kolla-ansible/requirements.txt
 RUN cp -r kolla-ansible/etc/kolla /etc/kolla/
 RUN kolla-ansible/tools/generate_passwords.py
+# Set path to kolla-ansible
+ENV PATH="/kolla/kolla-ansible/tools:${PATH}"
 
 # Install openstack clients
 RUN pip install \
