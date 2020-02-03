@@ -43,4 +43,5 @@ RUN pip install \
     python-neutronclient \
     python-heatclient \
     python-ceilometerclient \
+    python-ironicclient \
     aodhclient
