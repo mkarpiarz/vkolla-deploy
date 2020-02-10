@@ -29,12 +29,15 @@ ADD ansible.cfg /etc/ansible/ansible.cfg
 WORKDIR /kolla
 RUN git clone https://github.com/openstack/kolla -b $K_BRANCH
 RUN git clone https://github.com/openstack/kolla-ansible -b $KA_BRANCH
-RUN pip install --upgrade -r kolla/requirements.txt
-RUN pip install --upgrade -r kolla-ansible/requirements.txt
+WORKDIR /kolla/kolla
+RUN pip install --upgrade -r requirements.txt
+RUN python setup.py install
+WORKDIR /kolla/kolla-ansible
+RUN pip install --upgrade -r requirements.txt
+RUN python setup.py install
+WORKDIR /kolla
 RUN cp -r kolla-ansible/etc/kolla /etc/kolla/
 RUN kolla-ansible/tools/generate_passwords.py
-# Set path to kolla-ansible
-ENV PATH="/kolla/kolla-ansible/tools:${PATH}"
 
 # Install openstack clients
 RUN pip install \
