@@ -48,3 +48,6 @@ RUN pip install \
     python-ceilometerclient \
     python-ironicclient \
     aodhclient
+
+RUN apt-get clean
+RUN apt-get autoclean
